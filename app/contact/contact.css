@@ -1,65 +1,112 @@
 /* ═══════════════════════════════════════
    LABELS
 ═══════════════════════════════════════ */
+
 .section-label-gold {
-  font-family: Georgia, serif;
-  font-size: 0.85rem;
-  color: #c9a84c;
-  letter-spacing: 0.05em;
-  margin: 0 0 12px 0;
-  text-align: center;
+  color: #D4A344!important;
+  font-size: 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-transform: none;
 }
 
 /* ═══════════════════════════════════════
    SECTION ÉQUIPE
 ═══════════════════════════════════════ */
 .team-section {
-  background-color: #1a2744;
-  padding: 80px 40px;
+  background-color: #223553;
+  padding: 100px 64px;
 }
 
 .team-inner {
-  max-width: 1000px;
+  max-width: 1072px;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* TitleContainer */
+.team-title-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
 }
 
 .team-title {
-  font-family: Georgia, serif;
-  font-size: 2rem;
-  color: #ffffff;
-  margin: 0 0 16px 0;
-  line-height: 1.3;
+  font-family: 'EB Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0;
+  white-space: nowrap; /* force tout sur une ligne */
+}
+
+/* Frame 4590 - subtitle wrapper */
+.team-subtitle-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 638px;
+  height: auto;
+  gap: 10px;
+  justify-content: center;
+}
+.team-heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  align-items: center;
 }
 
 .team-subtitle {
-  font-family: Georgia, serif;
-  font-size: 0.95rem;
-  color: #b0bccc;
-  line-height: 1.7;
-  max-width: 500px;
-  margin: 0 auto 50px auto;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 30px;
+  letter-spacing: 0;
+  text-align: center;
+  width: 638px;
+  margin: 0;
 }
 
+/* CardsContainer */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 700px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 100px;
+  justify-content: center;
 }
 
+/* Card */
 .team-card {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 486px;
+  height: 500px;
+  border-radius: 20px;
+  margin: 5px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
+  position: relative;
 }
 
 .team-photo-wrapper {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .team-photo {
@@ -74,37 +121,38 @@
   transform: scale(1.04);
 }
 
+/* InfosContainer */
 .team-card-footer {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 476px;
+  height: 50px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .team-name {
-  font-family: Georgia, serif;
-  font-size: 0.95rem;
-  color: #ffffff;
-  margin: 0 0 2px 0;
-}
-
-.team-role {
-  font-family: Georgia, serif;
-  font-size: 0.8rem;
-  color: #8a9ab5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #223553;
   margin: 0;
 }
 
 .team-linkedin {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: #0077b5;
+  background: #223553;
   color: #ffffff;
-  font-family: Georgia, serif;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -115,59 +163,92 @@
 }
 
 .team-linkedin:hover {
-  background: #005e8e;
+  background: #D4A344;
+}
+.section-label-gold {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #D4A344;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-section { padding: 60px 20px; }
+  .team-grid { flex-direction: column; gap: 40px; align-items: center; }
+  .team-card { width: 100%; height: 400px; }
+  .team-title { width: 100%; font-size: 32px; }
+  .team-subtitle-wrapper { width: 100%; }
+  .team-subtitle { width: 100%; }
+  .team-card-footer { width: calc(100% - 10px); }
 }
 
 /* ═══════════════════════════════════════
    SECTION FORMULAIRE
 ═══════════════════════════════════════ */
 .contact-section {
-  background-color: #1a2744;
-  padding: 80px 40px;
+  background-color: #223553;
+  padding: 125px 64px 100px 64px;
 }
 
 .contact-inner {
-  max-width: 1000px;
+  max-width: 1072px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  gap: 60px;
+  flex-direction: row;
+  gap: 40px;
+  height: auto;
 }
 
-/* Texte gauche */
+/* Container1 - colonne gauche */
 .contact-left {
-  flex: 0 0 280px;
-}
-
-.contact-left .section-label-gold {
-  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .contact-title {
-  font-family: Georgia, serif;
-  font-size: 2rem;
-  color: #ffffff;
-  margin: 0 0 20px 0;
-  line-height: 1.3;
-}
-
-.contact-desc {
-  font-family: Georgia, serif;
-  font-size: 0.9rem;
-  color: #b0bccc;
-  line-height: 1.8;
+  font-family: 'EB Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  width: 476px;
   margin: 0;
 }
 
-/* Formulaire */
+.contact-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 30px;
+  text-align: center;
+  max-width: 476px;
+  margin: 0;
+}
+/* FormsContainer - colonne droite */
 .contact-form-wrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background: #F5F5F5;
+  padding: 40px;
+  gap: 20px;
 }
 
 .contact-form {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -186,21 +267,22 @@
 }
 
 .form-group label {
-  font-family: Georgia, serif;
-  font-size: 0.85rem;
-  color: #1a2744;
-  font-weight: bold;
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #223553;
 }
 
 .form-group input,
 .form-group textarea {
   border: 1px solid #dde2ec;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 10px 14px;
-  font-family: Georgia, serif;
-  font-size: 0.88rem;
-  color: #1a2744;
-  background: #f8f9fc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #223553;
+  background: #ffffff;
   outline: none;
   transition: border-color 0.2s;
   resize: none;
@@ -213,52 +295,58 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #1a2744;
-  background: #ffffff;
+  border-color: #223553;
 }
 
 .form-submit {
-  background: #1a2744;
+  background: #D4A344;
   color: #ffffff;
-  font-family: Georgia, serif;
-  font-size: 0.95rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
-  border-radius: 6px;
-  padding: 12px 28px;
+  border-radius: 20px;
+  padding: 14px 28px;
   cursor: pointer;
-  align-self: flex-end;
+  align-self: center;
+  width: 184px;
+  height: 51px;
   transition: background 0.2s;
 }
 
 .form-submit:hover {
-  background: #c9a84c;
+  background: #c4922e;
 }
 
-.contact-success {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 60px 32px;
-  text-align: center;
-  font-family: Georgia, serif;
-  font-size: 1rem;
-  color: #1a2744;
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section { padding: 60px 20px; }
+  .contact-inner { flex-direction: column; }
+  .contact-left { width: 100%; border-radius: 20px; }
+  .contact-title { width: 100%; font-size: 32px; }
+  .form-row { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════
    SECTION CARTE
 ═══════════════════════════════════════ */
 .map-section {
-  background-color: #1a2744;
-  padding: 0 40px 60px;
+  background-color: #223553;
+  padding: 100px 64px;
 }
 
 .map-wrapper {
-  max-width: 1000px;
+  max-width: 1072px;
+  height: 500px;
   margin: 0 auto;
-  height: 380px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-section { padding: 60px 20px; }
+  .map-wrapper { height: 300px; }
 }
 
 /* ═══════════════════════════════════════

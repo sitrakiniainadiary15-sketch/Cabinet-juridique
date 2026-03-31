@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap');
+
+/* ─── NAVBAR ─── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  height: 100px;
+  background: #223553;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* ─── BRAND ─── */
+.navbar-brand { display: flex; align-items: center; gap: 10px; }
+.navbar-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.navbar-logo span { color: var(--gold); font-size: 18px; font-weight: 700; }
+.navbar-title { display: flex; flex-direction: column; }
+.brand-name { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #fff; font-family: system-ui, sans-serif; }
+.brand-sub { font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.45); font-family: system-ui, sans-serif; }
+
+/* ─── LIENS DESKTOP ─── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-links a {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover { color: var(--gold); }
+
+.navbar-links .btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  width: auto;
+  height: auto;
+}
+
+/* ─── HAMBURGER ─── */
+.navbar-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ─── MENU MOBILE ─── */
+.navbar-mobile {
+  display: none;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 16px 24px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px 0 8px;
+    gap: 4px;
+  }
+  .navbar-logo {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-logo img {
+  mix-blend-mode: screen;
+}
+  .navbar-mobile a {
+    display: block;
+    padding: 14px 24px;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    background: #1a2744;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.2s;
+    width: auto;
+    height: auto;
+  }
+
+  .navbar-mobile a:hover {
+    background: #131d35;
+  }
+}

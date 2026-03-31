@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Hero from "@/components/Hero";
 import "./contact.css";
 
 const team = [
@@ -33,57 +34,52 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* ── HERO FLOTTANT ── */}
-      <section className="hero">
-        <div className="hero-inner">
-          <div className="hero-pattern" />
-          <div className="hero-content">
-            <h1>Contactez-nous</h1>
-            <p className="hero-subtitle">Externalisation Juridique, Sociale et Fiscale (BPO)</p>
-          </div>
-        </div>
-      </section>
+      {/* ── HERO ── */}
+      <Hero />
 
       {/* ── SECTION ÉQUIPE ── */}
       <section className="team-section">
-        <div className="team-inner">
-          <p className="section-label-gold">Notre approche</p>
-          <h2 className="team-title">Découvrez les membres de l'équipe</h2>
-          <p className="team-subtitle">
-            Soleo saepe ante oculos ponere, idque libenter crebris usurpare sermonibus, omnis nostrorum imperatorum.
-          </p>
-          <div className="team-grid">
-            {team.map((member, i) => (
-              <div className="team-card" key={i}>
-                <div className="team-photo-wrapper">
-                  <img src={member.photo} alt={member.name} className="team-photo"
-                    onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/400x400/1a2744/ffffff?text=" + member.name.split(" ")[0]; }}
-                  />
-                </div>
-                <div className="team-card-footer">
-                  <div>
-                    <p className="team-name">{member.name}</p>
-                    <p className="team-role">{member.role}</p>
-                  </div>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin">in</a>
-                </div>
-              </div>
-            ))}
+  <div className="team-inner">
+    <div className="team-title-container">
+  <div className="team-heading-wrapper">
+    <p className="section-label-gold">Notre approche</p>
+    <h2 className="team-title">Découvrez les membres de l&apos;équipe</h2>
+  </div>
+  <div className="team-subtitle-wrapper">
+    <p className="team-subtitle">
+      Des spécialistes passionnés, unis par une mission commune : protéger vos intérêts et libérer votre potentiel.
+    </p>
+  </div>
+</div>
+    <div className="team-grid">
+      {team.map((member, i) => (
+        <div className="team-card" key={i}>
+          <div className="team-photo-wrapper">
+            <img src={member.photo} alt={member.name} className="team-photo"
+              onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/400x400/1a2744/ffffff?text=" + member.name.split(" ")[0]; }}
+            />
+          </div>
+          <div className="team-card-footer">
+            <p className="team-name">{member.name}</p>
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin">in</a>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── SECTION FORMULAIRE ── */}
       <section className="contact-section">
         <div className="contact-inner">
-          <div className="contact-left">
-            <p className="section-label-gold">Contact</p>
-            <h2 className="contact-title">Restons en contact !</h2>
-            <p className="contact-desc">
-              Vous avez envie de vous lancer mais vous avez encore des questions ?
-              Remplissez le formulaire et nous reviendrons vers vous dans les meilleurs délais.
-            </p>
-          </div>
+         <div className="contact-left">
+  <p className="section-label-gold">Contact</p>
+  <h2 className="contact-title">Restons en contact !</h2>
+  <p className="contact-desc">
+    Vous avez envie de vous lancer mais vous avez encore des questions ? 
+    Remplissez le formulaire et nous reviendrons vers vous dans les meilleurs délais.
+  </p>
+</div>
           <div className="contact-form-wrapper">
             {sent ? (
               <div className="contact-success"><p>✅ Message envoyé ! Nous vous répondrons bientôt.</p></div>

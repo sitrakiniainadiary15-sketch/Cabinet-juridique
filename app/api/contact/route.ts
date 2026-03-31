@@ -1,29 +1,27 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { connectDB } from '@/lib/mongodb'
-import Message from '@/lib/models/Message'
+import { Resend } from "resend";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(req: Request) {
+  const { nom, telephone, email, message } = await req.json();
+
   try {
-    const { nom, email, telephone, message } = await req.json()
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "sitrakiniainadiary15@gmail.com", // ← mets ton email ici pour le test
+      subject: `Nouveau message de ${nom}`,
+      html: `
+        <h2>Nouveau message depuis le site</h2>
+        <p><strong>Nom :</strong> ${nom}</p>
+        <p><strong>Téléphone :</strong> ${telephone}</p>
+        <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Message :</strong> ${message}</p>
+      `,
+    });
 
-    if (!nom || !email || !message) {
-      return NextResponse.json(
-        { error: 'Champs obligatoires manquants' },
-        { status: 400 }
-      )
-    }
-
-    await connectDB()
-    const nouveauMessage = await Message.create({
-      nom,
-      email,
-      telephone: telephone || '',
-      message,
-    })
-
-    return NextResponse.json({ success: true, id: nouveauMessage._id }, { status: 201 })
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Erreur création message:', error)
-    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
+    return NextResponse.json({ error: "Erreur envoi email" }, { status: 500 });
   }
 }

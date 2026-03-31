@@ -1,26 +1,65 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Hero from "@/components/Hero";
 import "./nos-services.css";
 
 const slides = [
   {
-    quote: "Soleo saepe ante oculos ponere",
-    title: "Nous gérons la naissance de votre entreprise de A à Z",
-    body1: "Principium autem unde latius se funditabat, emersit ex negotio tali. Chilo ex vicario et coniux eius Maxima nomine, questi apud Olybrium ea tempestate urbi praefectum, vitamque suam venenis petitam adseverantes inpetrarunt ut hi, quos suspectati sunt, ilico rapti conpingerentur in vincula.",
-    body2: "Verum ad istam omnem orationem brevis est defensio. Nam quoad aetas M. Caeli dare potuit isti suspicioni locum, fuit primum ipsius pudore, deinde etiam patris diligentia disciplinaque munita. Qui ut huic virilem togam dedit, nihil dicam hoc loco de me; tantum sit, quantum vos existimatis: hoc dicam.",
+    icon: "/icone_contrat.png",
+    name: "Création\n& Formalités",
+    tagline: "Le socle de votre projet entrepreneurial",
+    desc: "Nous transformons la complexité du lancement en une formalité fluide. De la première esquisse des statuts à la réception du Kbis, nous gérons chaque étape avec une précision chirurgicale.",
+    bullets: [
+      "Rédaction sur-mesure : Statuts, actes de nomination et listes des souscripteurs adaptés à votre projet.",
+      "Guichet Unique (INPI/EDBM) : Saisie complète, signature électronique et suivi rigoureux jusqu'à l'immatriculation.",
+      "Interlocuteur dédié : Une \"Chargée de création\" unique pour un suivi personnalisé et une réactivité maximale.",
+    ],
   },
   {
-    quote: "Fides et iustitia semper prima",
-    title: "Nous vous accompagnons dans vos litiges",
-    body1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    body2: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+    icon: "/call-center_2068857.png",
+    name: "Secrétariat juridique",
+    tagline: "La conformité continue, sans effort",
+    desc: "Libérez-vous de la gestion administrative récurrente. Nous assurons la pérennité juridique de vos structures, même lors des pics d'activité saisonniers.",
+    bullets: [
+      "Juridique Annuel : Gestion intégrale de l'approbation des comptes et du dépôt légal.",
+      "Juridique Exceptionnel : Transferts de siège, changements d'objet social, cessions de parts et modifications de gérance.",
+      "Haute Capacité : Un pôle dimensionné pour absorber des flux massifs (jusqu'à 48 dépôts/jour par collaborateur) pour nos cabinets partenaires.",
+    ],
   },
   {
-    quote: "Lex est ratio summa",
-    title: "Expertise en droit des sociétés et fiscal",
-    body1: "Praesent vulputate odio quis lorem hendrerit ultrices. Nam molestie blandit arcu, vel hendrerit tortor fringilla ut. Sed et velit at ligula placerat pretium.",
-    body2: "Aliquam erat volutpat. Nam accumsan molestie ante, at faucibus enim rhoncus eget. Curabitur tempor diam at libero semper, id dignissim elit tincidunt.",
+    icon: "/icone_paie.png",
+    name: "Gestion Sociale\n& Paie",
+    tagline: "L'expertise RH au service de l'humain",
+    desc: "Déchargez-vous de la complexité sociale française. Nous sécurisons la relation entre l'entreprise et ses salariés, de l'embauche au solde de tout compte.",
+    bullets: [
+      "Paie & DSN : Établissement des bulletins de paie et télétransmissions sociales (URSSAF, Mutuelles).",
+      "Secrétariat RH : Rédaction des contrats de travail, avenants, DPAE et gestion des procédures de départ.",
+      "Accompagnement Expert : Simulation des coûts d'embauche, aide aux dispositifs spécifiques (ZRR) et assistance en cas de contrôle.",
+    ],
+  },
+  {
+    icon: "/icone_ingénierie.png",
+    name: "Ingénierie fiscale",
+    tagline: "La haute technicité pour vos décisions stratégiques",
+    desc: "Nous intervenons sur les dossiers à forte valeur ajoutée, en parfaite synergie avec les experts-comptables et commissaires aux comptes.",
+    bullets: [
+      "Restructurations : Création de holdings, apports de titres, fusions simples et pactes d'associés.",
+      "Flux Intra-groupe : Rédaction et sécurisation des conventions de trésorerie et de management fees.",
+      "Livrables Pédagogiques : Nous centralisons l'opération et fournissons des plaquettes de synthèse claires pour le client final.",
+    ],
+  },
+  {
+    icon: "/accounting_5278345.png",
+    name: "Externalisation des\ntraitements comptables",
+    tagline: "La haute technicité pour vos opérations courantes",
+    desc: "Nous intervenons en soutien de votre fonction comptable, en parfaite synergie avec vos processus internes ou vos conseils habituels (experts-comptables).",
+    bullets: [
+      "Saisie et Tenue : Prise en charge de la saisie comptable, lettrage des comptes tiers et rapprochements bancaires pour une visibilité en temps réel.",
+      "Support Pré-bilanciel : Préparation des dossiers de révision et justification des soldes pour faciliter l'intervention de l'expert-comptable.",
+      "Reporting de Gestion : Établissement de tableaux de bord personnalisés et suivi des indicateurs clés pour un pilotage précis de votre activité.",
+    ],
   },
 ];
 
@@ -32,35 +71,45 @@ export default function NosServicesPage() {
 
   return (
     <>
-      {/* ── HERO FLOTTANT ── */}
-      <section className="hero">
-        <div className="hero-inner">
-          <div className="hero-pattern" />
-          <div className="hero-content">
-            <h1>Thadeus Externalia Juris</h1>
-            <p className="hero-subtitle">Externalisation Juridique, Sociale et Fiscale (BPO)</p>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* ── SECTION SERVICES ── */}
-      <section className="services-section">
-        <div className="services-wrapper">
-          <div className="services-card">
-            <div className="services-left">
-              <div className="services-circle" />
-              <p className="services-quote">{slide.quote}</p>
-              <div className="services-nav">
-                <button className="nav-btn" onClick={prev}>&#8249;</button>
-                <button className="nav-btn" onClick={next}>&#8250;</button>
+      <section className="ns-section">
+        <div className="ns-wrapper">
+          <div className="ns-card">
+
+            <div className="ns-left">
+              <div className="ns-title-container">
+                <div className="ns-icon-circle">
+                  <Image
+                    src={slide.icon}
+                    alt={slide.name}
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+                <h2 className="ns-service-name">
+                  {slide.name.split("\n").map((line, i) => (
+                    <span key={i}>{line}<br /></span>
+                  ))}
+                </h2>
+              </div>
+              <div className="ns-nav">
+                <button className="ns-nav-btn" onClick={prev}>&#8249;</button>
+                <button className="ns-nav-btn" onClick={next}>&#8250;</button>
               </div>
             </div>
-            <div className="services-divider" />
-            <div className="services-right">
-              <h2 className="services-title">{slide.title}</h2>
-              <p className="services-body">{slide.body1}</p>
-              <p className="services-body">{slide.body2}</p>
+
+            <div className="ns-right">
+              <h3 className="ns-tagline">{slide.tagline}</h3>
+              <p className="ns-desc">{slide.desc}</p>
+              <ul className="ns-bullets">
+                {slide.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
             </div>
+
           </div>
         </div>
       </section>
