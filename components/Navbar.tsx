@@ -11,20 +11,21 @@ export default function Navbar() {
   return (
   <nav className="navbar">
     <div className="navbar-brand">
-      <Image
+     <Image
   src="/logotr.png"
   alt="Thadeus Logo"
-  width={200}
-  height={90}
+  width={150}
+  height={80}
   style={{ 
     objectFit: 'contain',
     position: 'absolute',
     left: '10px',
     top: '50%',
-    transform: 'translateY(-50%)'
+    transform: 'translateY(-50%)',
+    margin: '10px',
+   
   }}
 />
-
     </div>
 
       {/* ── Liens desktop ── */}
