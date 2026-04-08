@@ -163,4 +163,20 @@
   .ns-service-name { width: 100%; font-size: 32px; }
   .ns-title-container { width: 100%; }
   .ns-tagline { width: 100%; }
+  @media (max-width: 768px) {
+
+  .ns-card {
+    flex-direction: column;
+  }
+
+  /* 🔥 ON INVERSE VISUELLEMENT */
+  .ns-right {
+    order: 1;
+  }
+
+  .ns-left {
+    order: 2;
+  }
+
+}
 }

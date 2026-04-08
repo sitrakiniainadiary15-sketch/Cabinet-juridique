@@ -1,9 +1,16 @@
 "use client";
+
 import { useState } from "react";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 
-const services = [
+// Import Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
+const SERVICES = [
   {
     icon: "/accounting_5278345.png",
     title: "Externalisation des traitements comptables",
@@ -31,34 +38,19 @@ const services = [
   },
 ];
 
-const steps = [
+const STEPS = [
   { n: 1, title: "Conseil & Cadrage stratégique", desc: "Un échange initial pour valider vos choix stratégiques (régime d'imposition, TVA, capital social) et définir le périmètre de la mission." },
   { n: 2, title: "Rédaction & Collecte des pièces", desc: "Nos experts rédigent vos actes sur-mesure (statuts, PV, contrats). Nous centralisons les justificatifs et coordonnons le dépôt des fonds." },
   { n: 3, title: "Signature & Téléprocédures", desc: "Signature électronique sécurisée (Yousign/Oneflow) et saisie immédiate sur le Guichet Unique (INPI) par nos formalistes dédiés." },
   { n: 4, title: "Livraison & Livrables de synthèse", desc: "Réception de votre K-bis à jour et remise d'une plaquette de synthèse claire expliquant les impacts de l'opération réalisée." },
 ];
 
-const faqs = [
-  {
-    q: "Quels types de structures accompagnez-vous ?",
-    a: "Nous intervenons pour tous types de formes juridiques françaises (SARL, SAS, SCI, Holding, etc.), qu'il s'agisse de créations, de gestion courante ou d'opérations complexes de restructuration. Nous travaillons principalement en partenariat avec des experts-comptables.",
-  },
-  {
-    q: "Comment garantissez-vous la sécurité de mes données ?",
-    a: "La confidentialité est au cœur de notre métier. Nous utilisons des outils de signature électronique sécurisés (Yousign/Oneflow) et pouvons travailler directement sur vos logiciels métiers (Pennylane, Sage, etc.) via des accès sécurisés pour garantir une continuité parfaite sans rupture de données.",
-  },
-  {
-    q: "Quels sont vos délais pour l'obtention d'un Kbis ?",
-    a: "Pour une création classique, nous obtenons généralement le Kbis en 2 à 5 jours ouvrés après le dépôt sur le Guichet Unique. Pour les activités artisanales (CMA), les délais peuvent varier entre 4 et 6 semaines selon les chambres consulaires.",
-  },
-  {
-    q: "Pouvez-vous travailler sur nos propres outils métiers ?",
-    a: "Tout à fait. Nos équipes sont formées aux logiciels standards du marché (Pennylane, Sage, Cegid, MyUnisoft, etc.). Nous nous intégrons directement à votre écosystème digital pour que notre intervention soit transparente et n'ajoute aucune friction à vos processus actuels.",
-  },
-  {
-    q: "Comment gérez-vous la distance et le décalage horaire ?",
-    a: "Madagascar ne possède qu'une à deux heures de décalage avec la France (selon la saison). Cela nous permet de travailler en parfaite synchro avec vos horaires de bureau. Nos processus sont 100% digitalisés, vous offrant une réactivité identique, voire supérieure, à un collaborateur en interne.",
-  },
+const FAQS = [
+  { q: "Quels types de structures accompagnez-vous ?", a: "Nous intervenons pour tous types de formes juridiques françaises (SARL, SAS, SCI, Holding, etc.), qu'il s'agisse de créations, de gestion courante ou d'opérations complexes de restructuration. Nous travaillons principalement en partenariat avec des experts-comptables." },
+  { q: "Comment garantissez-vous la sécurité de mes données ?", a: "La confidentialité est au cœur de notre métier. Nous utilisons des outils de signature électronique sécurisés (Yousign/Oneflow) et pouvons travailler directement sur vos logiciels métiers (Pennylane, Sage, etc.) via des accès sécurisés pour garantir une continuité parfaite sans rupture de données." },
+  { q: "Quels sont vos délais pour l'obtention d'un Kbis ?", a: "Pour une création classique, nous obtenons généralement le Kbis en 2 à 5 jours ouvrés après le dépôt sur le Guichet Unique. Pour les activités artisanales (CMA), les délais peuvent varier entre 4 et 6 semaines selon les chambres consulaires." },
+  { q: "Pouvez-vous travailler sur nos propres outils métiers ?", a: " Tout à fait. Nos équipes sont formées aux logiciels standards du marché (Pennylane, Sage, Cegid, MyUnisoft, etc.). Nous nous intégrons directement à votre écosystème digital pour que notre intervention soit transparente et n'ajoute aucune friction à vos processus actuels." },
+  { q: "Comment gérez-vous la distance ?", a: "Madagascar ne possède qu'une à deux heures de décalage avec la France (selon la saison). Cela nous permet de travailler en parfaite synchro avec vos horaires de bureau. Nos processus sont 100% digitalisés, vous offrant une réactivité identique, voire supérieure, à un collaborateur en interne." },
 ];
 
 export default function HomePage() {
@@ -73,12 +65,12 @@ export default function HomePage() {
         <div className="about-inner">
           <div className="about-container">
             <div className="about-left">
-              <p className="section-label">A propos</p>
+              <span className="section-label">A propos</span>
               <h2>Libérez votre croissance, nous sécurisons vos formalités.</h2>
             </div>
             <div className="about-right">
-              <p>Basés à Madagascar, nous accompagnons les experts-comptables et les dirigeants d&apos;entreprise, localement et à l&apos;international, pour transformer leurs contraintes administratives en leviers de réussite.</p>
-              <p>Nous agissons comme le prolongement de vos équipes pour vous faire gagner du temps précieux, en vous concentrant sur votre cœur de métier et le conseil à haute valeur ajoutée. Que vous soyez en phase de création ou en plein pic d&apos;activité annuelle, notre équipe est prête à devenir le prolongement naturel de vos bureaux.</p>
+              <p>Basés à Madagascar, nous accompagnons les experts-comptables et dirigeants pour transformer les contraintes administratives en leviers de réussite.</p>
+              <p>Nous agissons comme le prolongement naturel de vos bureaux, vous permettant de vous concentrer sur votre cœur de métier.</p>
             </div>
           </div>
         </div>
@@ -89,27 +81,58 @@ export default function HomePage() {
         <div className="services-container">
           <div className="services-inner">
             <div className="services-header">
-              <p className="section-label">Nos services</p>
+              <span className="section-label">Nos services</span>
               <h2>Un accompagnement 360°<br />pour vos formalités</h2>
-              <p>Une structure organisée en 4 pôles métiers pour répondre avec précision à l&apos;ensemble des besoins de vos clients.</p>
             </div>
-            <div className="services-grid">
-              {services.map((service, i) => (
+
+            {/* --- VERSION MOBILE (CAROUSEL 1 CARTE) --- */}
+            <div className="mobile-only-carousel">
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={20}
+                slidesPerView={1}
+                navigation={{
+                  nextEl: ".next-service",
+                  prevEl: ".prev-service",
+                }}
+              >
+                {SERVICES.map((service, i) => (
+                  <SwiperSlide key={i}>
+                    <div className="service-card">
+                      <div className="service-icon">
+                        <Image src={service.icon} alt={service.title} width={40} height={40} />
+                      </div>
+                      <h3>{service.title}</h3>
+                      <div className="service-content-wrapper">
+                        <p>{service.desc}</p>
+                        <div className="carousel-nav-inline">
+                          <button className="nav-btn prev-service" aria-label="Précédent">
+                            <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2"><path d="m15 18-6-6 6-6"/></svg>
+                          </button>
+                          <button className="nav-btn next-service" aria-label="Suivant">
+                            <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2"><path d="m9 18 6-6-6-6"/></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* --- VERSION DESKTOP (GRILLE) --- */}
+            <div className="services-grid desktop-only-grid">
+              {SERVICES.map((service, i) => (
                 <div className="service-card" key={i}>
                   <div className="service-icon">
-                    <Image
-                      src={service.icon}
-                      alt={service.title}
-                      width={40}
-                      height={40}
-                      style={{ objectFit: "contain" }}
-                    />
+                    <Image src={service.icon} alt={service.title} width={40} height={40} />
                   </div>
                   <h3>{service.title}</h3>
                   <p>{service.desc}</p>
                 </div>
               ))}
             </div>
+
             <div className="services-cta">
               <a href="/nos-services" className="btn-gold">En savoir plus</a>
             </div>
@@ -117,20 +140,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
+      {/* ── COMMENT ÇA MARCHE ── */}
       <section className="how">
         <div className="how-inner">
           <div className="how-header">
             <div className="how-header-left">
-              <p className="section-label">Notre approche</p>
+              <span className="section-label">Notre approche</span>
               <h2>Comment nous<br />collaborons ?</h2>
             </div>
             <div className="how-header-right">
-              <p>Chez Thadéus Externalia Juris, nous avons modélisé des processus rigoureux pour vous garantir réactivité et sécurité à chaque étape de la vie de vos dossiers.</p>
+              <p>Chez Thadéus Externalia Juris, nous avons modélisé des processus rigoureux pour vous garantir
+                 réactivité et sécurité à chaque étape de la vie de vos dossiers.</p>
             </div>
           </div>
           <div className="how-steps">
-            {steps.map((step) => (
+            {STEPS.map((step) => (
               <div className="step-card" key={step.n}>
                 <div className="step-number"><span>{step.n}</span></div>
                 <div className="step-content">
@@ -148,15 +172,17 @@ export default function HomePage() {
         <div className="faq-inner">
           <div className="main-container">
             <div className="faq-header">
-              <p className="section-label">FAQ</p>
-              <div className="faq-title-container">
+              <span className="section-label">FAQ</span>
+             
+               <div className="faq-title-container">
                 <h2>Vous avez des questions ?</h2>
               </div>
               <p>Nous répondons aux interrogations les plus fréquentes des cabinets et entreprises pour
                 faciliter votre transition vers l'externalisation.</p>
             </div>
+          
             <div className="faq-list">
-              {faqs.map((faq, i) => (
+              {FAQS.map((faq, i) => (
                 <div className="faq-item" key={i}>
                   <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                     <span>{faq.q}</span>
@@ -170,16 +196,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ── CTA FINAL ── */}
       <section className="cta" id="contact">
         <div className="cta-inner">
           <div className="txt-container">
-            <h2>Besoins de plus d&apos;informations ?</h2>
+            <h2>Besoin de plus d&apos;informations ?</h2>
             <p>Notre équipe se tient à disposition pour répondre à toutes vos questions.</p>
           </div>
-          <a href="mailto:externalia.juris@yahoo.com" className="btn-gold">
-            Contactez-nous !
-          </a>
+          <a href="thadeus@jurisexternalia.com" className="btn-gold">Contactez-nous !</a>
         </div>
       </section>
     </>

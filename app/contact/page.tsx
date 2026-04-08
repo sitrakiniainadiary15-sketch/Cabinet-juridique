@@ -88,16 +88,16 @@ export default function ContactPage() {
                 <div className="form-row">
                   <div className="form-group">
                     <label>Nom</label>
-                    <input type="text" name="nom" placeholder="Antoine Ponthieu" value={form.nom} onChange={handleChange} />
+                    <input type="text" name="nom" placeholder="Thadeus Externalia" value={form.nom} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <label>Numéro de téléphone</label>
-                    <input type="tel" name="telephone" placeholder="+261 38 82 329 53" value={form.telephone} onChange={handleChange} />
+                    <input type="tel" name="telephone" placeholder="+261 32 17 575 66" value={form.telephone} onChange={handleChange} />
                   </div>
                 </div>
                 <div className="form-group">
                   <label>Adresse mail</label>
-                  <input type="email" name="email" placeholder="contact@oxmad-digital.mg" value={form.email} onChange={handleChange} />
+                  <input type="email" name="email" placeholder="thadeus@jurisexternalia.com" value={form.email} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                   <label>Message</label>
@@ -113,11 +113,16 @@ export default function ContactPage() {
       {/* ── SECTION CARTE ── */}
       <section className="map-section">
         <div className="map-wrapper">
-          <iframe
-            title="Localisation cabinet"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.xxxxxxxxx!2d47.5361!3d-18.9137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21303f7c8b2b2b2b%3A0x0!2sAntananarivo%2C+Madagascar!5e0!3m2!1sfr!2smg!4v1700000000000"
-            width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          />
+         <iframe
+  title="Localisation cabinet"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784!2d47.4211471!3d-18.7960779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQ3JzQ1LjkiUyA0N8KwMjUnMjUuNCJF!5e0!3m2!1sfr!2smg!4v1700000000000"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
         </div>
       </section>
     </>

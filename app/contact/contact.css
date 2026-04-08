@@ -108,13 +108,11 @@
   overflow: hidden;
   border-radius: 20px;
 }
-
 .team-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
+  object-position: center; /* 🔥 IMPORTANT */
 }
 
 .team-card:hover .team-photo {
@@ -177,13 +175,75 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .team-section { padding: 60px 20px; }
-  .team-grid { flex-direction: column; gap: 40px; align-items: center; }
-  .team-card { width: 100%; height: 400px; }
-  .team-title { width: 100%; font-size: 32px; }
-  .team-subtitle-wrapper { width: 100%; }
-  .team-subtitle { width: 100%; }
-  .team-card-footer { width: calc(100% - 10px); }
+  /* 1. Conteneur principal : on centre tout */
+  .team-section { 
+    padding: 60px 0 !important; /* On enlève le padding latéral pour laisser les cartes respirer */
+  }
+
+  .team-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px; /* Le padding se met ici pour les titres, pas pour les cartes */
+  }
+
+  .team-grid { 
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 40px; 
+    align-items: center; 
+    width: 100%;
+  }
+
+  /* 2. La Carte : Largeur fixe de la maquette, hauteur automatique */
+  .team-card { 
+    width: 326px !important; /* Largeur exacte Figma */
+    height: auto !important;  /* SURTOUT PAS 400px fixes */
+    border-radius: 20px;
+    overflow: hidden; /* Pour que l'image respecte l'arrondi */
+    background:#223553;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 3. L'image : Doit toucher les bords */
+  .team-photo-wrapper {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .team-photo { 
+    width: 100% !important; 
+    height: auto !important; 
+    display: block !important;
+    object-fit: cover;
+  }
+
+  /* 4. Le Footer : Doit faire exactement la largeur de la carte */
+  .team-card-footer { 
+    width: 100% !important; /* On enlève le calc qui créait le décalage */
+    padding: 15px 20px !important;
+    background: #ffffff !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  /* 5. Titres et textes */
+  .team-title { 
+    width: 100%; 
+    font-size: 32px; 
+    text-align: center;
+  }
+  
+  .team-subtitle-wrapper, 
+  .team-subtitle { 
+    width: 100%; 
+    text-align: center;
+  }
 }
 
 /* ═══════════════════════════════════════
@@ -380,4 +440,52 @@
   .contact-section {
     padding: 60px 20px;
   }
+}
+@media (max-width: 768px) {
+
+  /* CENTRAGE GLOBAL */
+  .contact-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* COLONNE GAUCHE */
+  .contact-left {
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-title,
+  .contact-desc {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* FORMULAIRE */
+  .contact-form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  /* INPUTS BIEN ALIGNÉS */
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+  }
+
+  /* BOUTON CENTRÉ */
+  .form-submit {
+    margin: 0 auto;
+    display: block;
+  }
+
 }

@@ -23,10 +23,12 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  margin-left: -30px;
+  margin-top: -30px; /* ← remonte le logo */
 }
 .navbar-logo {
-  width: 36px;
-  height: 36px;
+  width: 200px;
+  height: 110px;
   background: var(--navy);
   display: flex;
   align-items: center;
@@ -45,6 +47,7 @@
   align-items: center;
   gap: 20px;
   margin-right: 20px;
+  margin-top: -30px; /* ← remonte les liens */
 }
 .navbar-links a {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -81,60 +84,76 @@
 
 /* ─── MENU MOBILE ─── */
 .navbar-mobile {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre horizontal */
+  width: 100%;
+  padding: 20px 0;
+  gap: 12px;
 }
-
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
+  /* 1. LA BARRE : On fixe la hauteur à 80px */
   .navbar {
-    height: auto;
-    padding: 16px 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* On centre le parent par défaut */
+    
+    height: 80px !important;
+    background: #223553 !important;
+    position: relative !important; /* Indispensable pour le positionnement des enfants */
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  .navbar-links {
-    display: none;
+  /* 2. LE LOGO : On le FORCE à gauche avec absolute */
+  .navbar-brand {
+    position: absolute !important;
+    left: 20px !important; /* Marge gauche de 20px */
+    top: 50% !important;
+    transform: translateY(-50%) !important; /* Centre parfaitement verticalement */
+    
+    margin: 0 !important; 
+    padding: 0 !important;
   }
 
-  .navbar-hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navbar-mobile {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 16px 0 8px;
-    gap: 4px;
-  }
   .navbar-logo {
-  width: 200px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.navbar-logo img {
-  mix-blend-mode: screen;
-}
-  .navbar-mobile a {
-    display: block;
-    padding: 14px 24px;
-    color: #fff;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    background: #1a2744;
-    border-radius: 8px;
-    text-align: center;
-    transition: background 0.2s;
-    width: auto;
-    height: auto;
+    width: auto !important;
+    height: 45px !important; /* Taille adaptée pour mobile */
+    background: transparent !important;
   }
 
-  .navbar-mobile a:hover {
-    background: #131d35;
+  /* 3. LE BURGER : On le FORCE à droite avec absolute */
+  .navbar-hamburger {
+    display: flex !important;
+    position: absolute !important;
+    right: 20px !important; /* Marge droite de 20px */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    width: 40px !important; /* Taille 40x40 */
+    height: 40px !important;
+    margin: 0 !important;
+  }
+
+  /* 4. ON CACHE LES LIENS TEXTE QUI GÊNENT */
+  .navbar-links {
+    display: none !important;
+  }
+
+  /* 5. LE MENU QUI S'OUVRE (Boutons bleus sur fond blanc) */
+  .navbar-mobile {
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 80px) !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding-top: 40px !important;
+    z-index: 999 !important;
   }
 }
