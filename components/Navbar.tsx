@@ -11,14 +11,13 @@ export default function Navbar() {
   return (
   <nav className="navbar">
     <div className="navbar-brand">
-   <Image
+  <Image
   src="/logotr.png"
   alt="Thadeus Logo"
-  width={280}  
-  height={120} 
-  style={{ 
-    objectFit: 'contain',
-  }}
+  width={200}
+  height={90}
+  className="navbar-logo-image" // Ajoute cette classe
+  style={{ objectFit: "contain" }}
 />
     </div>
 
