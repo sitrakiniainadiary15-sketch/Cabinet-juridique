@@ -31,14 +31,13 @@
    HERO SMALL (nos services + contact)
 ═══════════════════════════════════════ */
 .hero:has(.hero-small) {
-  height: 400px;
-  padding: 0;
-}
+    height: auto;        /* ← supprime la hauteur fixe 400px */
+  }
 
-.hero-inner.hero-small {
-  height: 100%;
-  margin-bottom: 100px;
-}
+  .hero-inner.hero-small  {
+    height: 300px;       /* ← hauteur fixe mobile */
+    margin-bottom: 0;    /* ← supprime le 100px qui déborde */
+  }
 
 /* ═══════════════════════════════════════
    TITRES
@@ -101,13 +100,11 @@
     padding: 0;
   }
 
-  .hero:has(.hero-small) {
-    height: 400px;
-  }
+  /* supprime: .hero:has(.hero-small) { ... } */
 
   .hero-inner.hero-small {
-    height: 100%;
-    margin-bottom: 100px;
+    height: 400px;     /* hauteur voulue sur tablette */
+    margin-bottom: 0; /* important pour éviter le décalage */
   }
 
   .hero-title {
@@ -124,14 +121,13 @@
     font-size: 16px;
   }
 }
-
 /* ═══════════════════════════════════════
    MOBILE : max 768px
 ═══════════════════════════════════════ */
 @media (max-width: 768px) {
   .hero-inner {
     width: 100%;
-    height: 300px;
+    height: 300px;     /* hauteur mobile */
     min-height: unset;
     padding: 0;
     border-radius: 15px;
@@ -139,7 +135,8 @@
   }
 
   .hero-inner.hero-small {
-    margin-bottom: 60px;
+    height: 300px;     /* même hauteur que hero-inner */
+    margin-bottom: 0;  /* important */
   }
 
   .hero-title-container {
