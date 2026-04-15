@@ -274,29 +274,38 @@ body {
   align-items: flex-end;
   width: 100%;
   max-width: 1072px;
-  min-height: 146px;
+  min-height: unset;      /* ← supprime 146px */
   margin: 0 auto;
 }
+
 .how-header-left {
   width: 536px;
-  min-height: 146px;
+  min-height: unset;      /* ← supprime 146px */
   display: flex;
   flex-direction: column;
+  gap: 8px;               /* ← espace entre label et h2 */
 }
+
+.how-header-left .section-label {
+  margin-bottom: 0;
+}
+
 .how-header-left h2 {
   font-family: 'EB Garamond', Georgia, serif;
   font-weight: 500;
   font-size: 48px;
   line-height: 100%;
   color: #fff;
-  margin: 0;
+  margin: 0;              /* ← supprime margin-top: 8px */
 }
+
 .how-header-right {
   width: 536px;
-  height: 90px;
+  height: auto;           /* ← supprime height: 90px */
   display: flex;
-  align-items: center;
+  align-items: flex-end;  /* ← aligne le texte par le bas */
 }
+
 .how-header-right p {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-weight: 400;
@@ -940,12 +949,12 @@ body {
   .how-header-left h2 { font-size: 28px; line-height: 1.2; color: #fff; margin: 0; }
   .how-header-right p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0; }
  .how-steps { display: flex; flex-direction: column; width: 100%; max-width: 100%; gap: 40px; padding: 0; margin: 0; }
-  .step-card { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 15px; width: 100%; height: 183px; background: #F5F5F5; border-radius: 20px; box-sizing: border-box; position: static; }
+  .step-card { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 15px; width: 100%; height: 200px; background: #F5F5F5; border-radius: 20px; box-sizing: border-box; position: static; }
  .step-number { width: 40px; height: 40px; border-radius: 50%; background: #D9D9D9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
  .step-number span { font-size: 24px; font-weight: 700; color: #000000; }
   .step-content { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 8px; padding-top: 0; }
-  .step-content h3 { font-size: 18px; font-weight: 700; line-height: 1.2; color: #223553; margin: 0; width: 100%; }
-  .step-content p { font-size: 14px; line-height: 1.6; color: #223553; margin: 0; width: 100%; }
+  .step-content h3 { font-size: 18px; font-weight: 700; line-height: 1.2; color: #223553; margin: 0; width: 100%;  }
+  .step-content p { font-size: 14px; line-height: 1.6; color: #223553; margin: 0px; width: 100%;}
 
   /* ── FAQ ── */
 .faq { padding: 52px 32px; } /* ← changez 16px en 32px */
