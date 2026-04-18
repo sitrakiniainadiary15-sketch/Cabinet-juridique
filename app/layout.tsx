@@ -14,22 +14,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  openGraph: {
-    title: "Thadeus Externalia Juris – Externalisation Juridique",
-    description: "Votre partenaire BPO spécialisé en formalités juridiques, comptables et sociales à Madagascar.",
-    url: "https://www.jurisexternalia.com",
-    siteName: "Thadeus Externalia Juris",
-    locale: "fr_FR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Thadeus Externalia Juris",
-    description: "Externalisation juridique, sociale et fiscale à Madagascar.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
