@@ -1313,3 +1313,37 @@ width: 100%;
   opacity: 1;
   transform: translateY(0);
 }
+/* ═══════════════════════════════════════
+   ANIMATION TIMELINE
+═══════════════════════════════════════ */
+.anim {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.anim.visible {
+  opacity: 1;
+  transform: none !important;
+}
+
+.anim-up { transform: translateY(40px); }
+.anim-left { transform: translateX(40px); }
+.anim-right { transform: translateX(-40px); }
+.anim-zoom { transform: scale(0.92); }
+
+/* Service cards */
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}

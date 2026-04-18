@@ -88,11 +88,11 @@ export default function NosServicesPage() {
                     style={{ objectFit: "contain" }}
                   />
                 </div>
-                <h2 className="ns-service-name">
-                  {slide.name.split("\n").map((line, i) => (
-                    <span key={i}>{line}<br /></span>
-                  ))}
-                </h2>
+                <h2 className="ns-service-name fade-in-text" key={`name-${current}`}>
+  {slide.name.split("\n").map((line, i) => (
+    <span key={i}>{line}<br /></span>
+  ))}
+</h2>
               </div>
               <div className="ns-nav">
                 <button className="ns-nav-btn" onClick={prev}>&#8249;</button>
@@ -101,13 +101,21 @@ export default function NosServicesPage() {
             </div>
 
             <div className="ns-right">
-              <h3 className="ns-tagline">{slide.tagline}</h3>
-              <p className="ns-desc">{slide.desc}</p>
+              <h3 className="ns-tagline fade-in-text" key={`tagline-${current}`}>
+  {slide.tagline}
+</h3>
+              <p className="ns-desc fade-in-text" key={`desc-${current}`}>
+  {slide.desc}
+</p>
+
               <ul className="ns-bullets">
-                {slide.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
+  {slide.bullets.map((b, i) => (
+    <li className="fade-in-text" key={`bullet-${current}-${i}`}
+        style={{ animationDelay: `${i * 0.3}s` }}>
+      {b}
+    </li>
+  ))}
+</ul>
             </div>
 
           </div>

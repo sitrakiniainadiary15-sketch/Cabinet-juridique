@@ -2,9 +2,7 @@
 import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import Image from "next/image";
-
 import Link from "next/link";
-// Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -57,53 +55,55 @@ const FAQS = [
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-          useEffect(() => {
-  const cards = document.querySelectorAll('.service-card');
+  useEffect(() => {
+    const cards = document.querySelectorAll('.service-card');
+    const left = document.querySelectorAll(".about-left");
+    const right = document.querySelectorAll(".about-right");
+    const steps = document.querySelectorAll(".step-card");
+    const faqs = document.querySelectorAll(".faq-item");
+    const header = document.querySelectorAll(".services-header");
+    const howHeader = document.querySelectorAll(".how-header-left, .how-header-right");
+    const cta = document.querySelectorAll(".cta-inner");
 
-  const left = document.querySelectorAll(".about-left");
-  const right = document.querySelectorAll(".about-right");
+    left.forEach(el => el.classList.add("anim", "anim-right"));
+    right.forEach(el => el.classList.add("anim", "anim-left"));
+    steps.forEach(el => el.classList.add("anim", "anim-up"));
+    faqs.forEach(el => el.classList.add("anim", "anim-up"));
+    header.forEach(el => el.classList.add("anim", "anim-up"));
+    howHeader.forEach(el => el.classList.add("anim", "anim-up"));
+    cta.forEach(el => el.classList.add("anim", "anim-zoom"));
 
-  const steps = document.querySelectorAll(".step-card"); // 👈 NEW
+    const elements = document.querySelectorAll(".anim, .service-card");
 
-  // about classes
-  left.forEach(el => el.classList.add("reveal", "reveal-left"));
-  right.forEach(el => el.classList.add("reveal", "reveal-right"));
-
-  // step animation class
-  steps.forEach(el => el.classList.add("reveal-step"));
-
-  const elements = document.querySelectorAll(".service-card, .reveal, .reveal-step");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-
-        if (entry.target.classList.contains("service-card")) {
-          entry.target.classList.add("visible");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains("service-card")) {
+            const index = [...cards].indexOf(entry.target as HTMLElement);
+            setTimeout(() => entry.target.classList.add("visible"), index * 150);
+          }
+          if (entry.target.classList.contains("anim")) {
+            setTimeout(() => entry.target.classList.add("visible"), 100);
+          }
+          if (entry.target.classList.contains("step-card")) {
+            const index = [...steps].indexOf(entry.target as HTMLElement);
+            setTimeout(() => entry.target.classList.add("visible"), index * 150);
+          }
+          if (entry.target.classList.contains("faq-item")) {
+            const index = [...faqs].indexOf(entry.target as HTMLElement);
+            setTimeout(() => entry.target.classList.add("visible"), index * 100);
+          }
+        } else {
+          entry.target.classList.remove("visible");
         }
+      });
+    }, { threshold: 0.15 });
 
-        if (entry.target.classList.contains("reveal")) {
-          entry.target.classList.add("active");
-        }
+    elements.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
-        // 👇 animation steps avec délai
-        if (entry.target.classList.contains("reveal-step")) {
-          const index = [...steps].indexOf(entry.target);
-
-          setTimeout(() => {
-            entry.target.classList.add("active");
-          }, index * 150); // delay entre chaque
-        }
-      }
-    });
-  }, { threshold: 0.2 });
-
-  elements.forEach(el => observer.observe(el));
-
-  return () => observer.disconnect();
-}, []);
   return (
-
 
     <>
       <Hero />
