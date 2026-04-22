@@ -5,8 +5,8 @@ import Hero from "@/components/Hero";
 import "./contact.css";
 
 const team = [
-  { name: "Antoine Ponthieu", role: "Juriste", photo: "/juryD.png", linkedin: "https://linkedin.com" },
-  { name: "Antoine Ponthieu", role: "Juriste", photo: "/juryh.png", linkedin: "https://linkedin.com" },
+  { name: "Emmanuela", role: "Juriste", photo: "/juryD.png", linkedin: "https://linkedin.com" },
+  { name: "Marcus Tida", role: "Juriste", photo: "/juryh.png", linkedin: "https://linkedin.com" },
 ];
 
 export default function ContactPage() {
